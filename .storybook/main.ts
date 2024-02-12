@@ -1,3 +1,4 @@
+import path from "path";
 import type { StorybookConfig } from "@storybook/nextjs";
 
 const config: StorybookConfig = {
@@ -14,6 +15,19 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: "tag",
+  },
+  // 스토리북 절대 경로 세팅
+  webpackFinal: async (config) => {
+    return {
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve?.alias,
+          "#": path.resolve(__dirname, "../src"),
+        },
+      },
+    };
   },
 };
 
