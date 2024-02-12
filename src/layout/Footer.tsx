@@ -17,7 +17,7 @@ const ICONS = [
 /** 공용 레이아웃 푸터 */
 const Footer: React.FC = () => {
   return (
-    <footer className="px-24 py-12 pb-16 flex flex-col items-center space-y-6 bg-bg-depth-2">
+    <footer className="px-24 py-12 pb-16 flex flex-col items-center space-y-6 bg-depth-2">
       <section className="flex space-x-16">
         {ICONS.map(({ label, path, Icon }) => (
           <Link

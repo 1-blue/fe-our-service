@@ -13,7 +13,7 @@ const Nav: React.FC = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="w-[300px] flex flex-col bg-bg-depth-2 border-r-2 border-b-2 border-contour">
+    <nav className="w-[300px] flex flex-col bg-depth-2 border-r-2 border-b-2 border-contour">
       <Link href="/" className="flex space-x-2 px-12 py-6">
         {/* FIXME: 로고 추가하기 */}
         <AcademicCapIcon className="h-6 w-6 text-white" />
