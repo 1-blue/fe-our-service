@@ -15,9 +15,7 @@ export interface ToastStore {
 /** 토스트 관련 처리 훅 ( `zustand` ) */
 const useToastStore = create<ToastStore>()((set) => ({
   toasts: [],
-  openToast({ id, message, type = "info", timer = 2000 }) {
-    id = id || uuidv4();
-
+  openToast({ id = uuidv4(), message, type = "info", timer = 2000 }) {
     set((prev) => ({ toasts: [...prev.toasts, { id, message, type, timer }] }));
   },
   closeToast(id) {
