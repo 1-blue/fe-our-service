@@ -68,6 +68,15 @@ const config: Config = {
           "950": "#042F2E",
         },
       },
+      keyframes: {
+        "ping-badge": {
+          "75%": { transform: "scale(1.4)", opacity: "0" },
+          "100%": { transform: "scale(1.4)", opacity: "0" },
+        },
+      },
+      animation: {
+        "ping-badge": "ping-badge 1s cubic-bezier(0, 0, 0.2, 1) infinite;",
+      },
     },
   },
   plugins: [],
