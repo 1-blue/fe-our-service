@@ -5,3 +5,4 @@ export * from "./snackbar";
 export * from "./badge";
 export * from "./size";
 export * from "./tailwind";
+export * from "./modal";
