@@ -1,4 +1,5 @@
-import "../src/css/tailwindcss.css";
+import React from "react";
+import "../src/css/tailwind.css";
 import type { Preview } from "@storybook/react";
 
 const preview: Preview = {
@@ -12,9 +13,13 @@ const preview: Preview = {
     },
     backgrounds: {
       default: "default",
-      values: [{ name: "default", value: "#000505" }],
+      values: [{ name: "default", value: "#23262C" }],
     },
   },
+  decorators: [
+    (Story) =>
+      React.createElement("article", { className: "p-10 text-white" }, Story()),
+  ],
 };
 
 export default preview;

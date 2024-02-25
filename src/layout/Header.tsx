@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   const [isFocus, setIsFocus] = useState(false);
 
   return (
-    <header className="px-12 py-8 flex flex-col bg-bg-depth-2 border-b-2 border-contour">
+    <header className="px-12 py-8 flex flex-col bg-depth-2 border-b-2 border-contour">
       <section className="flex justify-between">
         <form
           className={twMerge(
