@@ -19,7 +19,26 @@ interface Prop extends ToastType {
   closeOnClick?: boolean;
 }
 
-/** `zustand` & `React.Portal` / `framer-motion` & `tailwindcss`를 사용하는 공용 토스트 */
+/**
+ * `zustand` & `React.Portal` / `framer-motion` & `tailwindcss`를 사용하는 공용 토스트
+ * @see `<ToastProvider />`를 통해서 사용되기 때문에 직접 사용할 필요 없음 ( `openToast()` 사용 )
+ * @example
+ * const Component: React.FC = () => {
+ *   const { openToast } = useToastStore();
+ *
+ *   const onClickToast = () => {
+ *     openToast({ message: "토스트 메시지" });
+ *   };
+ *
+ *   return (
+ *     <article>
+ *       <button type="button" onClick={onClickToast}>
+ *         open toast
+ *       </button>
+ *     </article>
+ *   );
+ * };
+ **/
 const Toast: React.FC<Prop> = ({
   message,
   closeToast,

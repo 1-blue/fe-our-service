@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 
-import type { BadgeStatus } from "#/types/badge";
+import type { BadgeStatus } from "#/types";
 
 type Color = "main" | "blue" | "emerald" | "amber" | "red";
 type StatusColor = `bg-${Color}-500`;

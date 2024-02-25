@@ -6,14 +6,36 @@ import { twMerge } from "tailwind-merge";
 import { LightBulbIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { v4 as uuidv4 } from "uuid";
 import Button from "#/components/atoms/Button";
-import type { Snackbar } from "#/types";
+import type { Snackbar as SnackbarType } from "#/types";
 
-interface Prop extends Snackbar {
+interface Prop extends SnackbarType {
   /** 스낵바 닫는 함수 ( 메모리에서 제거 ) */
   closeSnackbar: (id: string) => void;
 }
 
-/** `zustand` & `React.Portal` / `framer-motion` & `tailwindcss`를 사용하는 공용 스낵바 */
+/**
+ * `zustand` & `React.Portal` / `framer-motion` & `tailwindcss`를 사용하는 공용 스낵바
+ * @see `<SnackbarProvider />`를 통해서 사용되기 때문에 직접 사용할 필요 없음 ( `openSnackbar()` 사용 )
+ * @example
+ * const Component: React.FC = () => {
+ *   const { openSnackbar } = useSnackbarStore();
+ *
+ *   const onClickSnackbar = () => {
+ *     openSnackbar({
+ *       message: "스낵바 메시지",
+ *       action: { name: "스낵바 액션", func: () => {} },
+ *     });
+ *   };
+ *
+ *   return (
+ *     <article>
+ *       <button type="button" onClick={onClickSnackbar}>
+ *         open snackbar
+ *       </button>
+ *     </article>
+ *   );
+ * };
+ **/
 const Snackbar: React.FC<Prop> = ({
   id = uuidv4(),
   message,

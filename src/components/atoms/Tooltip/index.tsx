@@ -29,6 +29,19 @@ interface Props {
   className?: string;
 }
 
+/**
+ * `framer-motion`과 `tailwindcss`를 사용하는 공용 아바타
+ * ( 우선순위: `text` > `icon` > `imagePath` )
+ *
+ * @link [디자인 및 속성 참고 - Tooltip(Antd)](https://ant.design/components/tooltip)
+ * @example
+ * <Tooltip element="Default" placement="bottom-right">
+ *   <Button className="whitespace-pre" loading primary>
+ *     Default
+ *   </Button>
+ * </Tooltip>;
+ *
+ */
 const Tooltip: React.FC<Props> = ({
   children,
   element,

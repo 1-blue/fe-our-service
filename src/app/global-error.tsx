@@ -14,10 +14,14 @@ const GlobalError: React.FC<Props> = ({ error, reset }) => {
   }, [error]);
 
   return (
-    <div>
-      <h2 className="bg-red-500 p-4">Something went wrong!</h2>
-      <button onClick={reset}>Try again</button>
-    </div>
+    <html>
+      <body>
+        <div>
+          <h2 className="bg-red-500 p-4">Something went wrong!</h2>
+          <button onClick={reset}>Try again</button>
+        </div>
+      </body>
+    </html>
   );
 };
 

@@ -16,7 +16,6 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-  argTypes: {},
 } satisfies Meta<typeof Snackbar>;
 
 export default meta;

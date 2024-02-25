@@ -11,7 +11,6 @@ const meta = {
     componentSubtitle: "공용 뱃지 컴포넌트",
   },
   tags: ["autodocs"],
-  decorators: [(Story) => <div className="p-10 text-white">{Story()}</div>],
 } satisfies Meta<typeof Badge>;
 
 export default meta;

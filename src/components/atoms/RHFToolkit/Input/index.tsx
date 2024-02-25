@@ -36,7 +36,37 @@ interface Props<T extends FieldValues>
   };
 }
 
-/** `react-hook-form`을 사용하는 공용 인풋 */
+/**
+ * `react-hook-form`을 사용하는 공용 인풋
+ * @example
+ * const Form: React.FC = () => {
+ *   const { control } = useForm<{ id: string; password: string }>();
+ *
+ *   return (
+ *     <article>
+ *       <RHFToolkit.Input
+ *         control={control}
+ *         name="id"
+ *         displayName="아이디"
+ *         rules={{
+ *           pattern: {
+ *             value: /^[a-zA-Z0-9]{6,12}$/,
+ *             message: `소문자, 대문자, 숫자로 구성되어야하며, 6~12자를 작성해야합니다.`,
+ *           },
+ *         }}
+ *       />
+ *       <RHFToolkit.Input
+ *         control={control}
+ *         name="password"
+ *         displayName="비밀번호"
+ *         left={{ children: <LockIcon /> }}
+ *       />
+ *     </article>
+ *   );
+ * };
+ *
+ * @todo 테스트 코드 에러 해결하기 ( `Warning: A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components` )
+ **/
 const Input = <T extends FieldValues>({
   displayName,
   name,
