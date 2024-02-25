@@ -73,9 +73,15 @@ const config: Config = {
           "75%": { transform: "scale(1.4)", opacity: "0" },
           "100%": { transform: "scale(1.4)", opacity: "0" },
         },
+        skeleton: {
+          "0%": { backgroundColor: "rgba(165, 165, 165, 0.1)" },
+          "50%": { backgroundColor: "rgba(165, 165, 165, 0.5)" },
+          "100%": { backgroundColor: "rgba(165, 165, 165, 0.1)" },
+        },
       },
       animation: {
         "ping-badge": "ping-badge 1s cubic-bezier(0, 0, 0.2, 1) infinite;",
+        skeleton: "skeleton 1.4s infinite ease-in-out",
       },
     },
   },
