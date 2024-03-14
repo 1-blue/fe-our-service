@@ -1,6 +1,14 @@
 import { HomeIcon as NormalHomeIcon } from "@heroicons/react/24/outline";
 import { HomeIcon as ActiveHomeIcon } from "@heroicons/react/24/solid";
 
+/**
+ * + 커스텀 라우터 종류
+ *   1. `ALL`: 모두 접근 가능
+ *   1. `LOGGED_IN`: 로그인 시 접근 가능
+ *   1. `LOGGED_OUT`: 비로그인 시 접근 가능
+ */
+type CustomRouteType = "ALL" | "LOGGED_IN" | "LOGGED_OUT";
+
 /** 커스텀 라우터 타입 ( 라우팅에 사용 ) */
 export interface CustomRoute {
   /** 렌더링될 텍스트 */
@@ -14,4 +22,5 @@ export interface CustomRoute {
     /** 경로와 일치할때 보여줄 아이콘 */
     Active: typeof ActiveHomeIcon;
   };
+  type: CustomRouteType;
 }

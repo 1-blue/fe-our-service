@@ -1,7 +1,8 @@
 import "#/css/tailwind.css";
 import "#/css/global.css";
 
-import Nav from "#/layout/Nav";
+import PCNav from "#/layout/PCNav";
+import MobileNav from "#/layout/MobileNav";
 import Header from "#/layout/Header";
 import Main from "#/layout/Main";
 import Footer from "#/layout/Footer";
@@ -26,17 +27,18 @@ const RootLayout: React.FC<React.PropsWithChildren<Props>> = ({
       <head>
         <title>세상에 없는 서비스</title>
       </head>
-      <body className="min-h-screen flex flex-col text-white">
+      <body className="relative min-h-screen flex flex-col text-white">
         <ToastProvider>
           <SnackbarProvider>
             <div className="flex-1 flex">
-              <Nav />
+              <PCNav className="hidden lg:flex" />
               <div className="flex-1 flex flex-col">
                 <Header />
                 <Main>{children}</Main>
               </div>
             </div>
-            <Footer />
+            <MobileNav className="lg:hidden" />
+            <Footer className="mb-[75px] lg:mb-0" />
 
             {/* 로그인 모달 */}
             {authModal}
