@@ -1,5 +1,6 @@
 import Icon from "#/components/atoms/Icon";
 import Link from "next/link";
+import { twJoin } from "tailwind-merge";
 
 const ICONS = [
   {
@@ -14,10 +15,23 @@ const ICONS = [
   },
 ];
 
+interface Props {
+  /**
+   * `tailwindcss`에 사용할 `calssName`
+   * @default ""
+   */
+  className?: string;
+}
+
 /** 공용 레이아웃 푸터 */
-const Footer: React.FC = () => {
+const Footer: React.FC<Props> = ({ className = "" }) => {
   return (
-    <footer className="px-24 py-12 pb-16 flex flex-col items-center space-y-6 bg-depth-2">
+    <footer
+      className={twJoin(
+        "px-24 py-12 pb-8 flex flex-col items-center space-y-6 bg-depth-2",
+        className
+      )}
+    >
       <section className="flex space-x-16">
         {ICONS.map(({ label, path, Icon }) => (
           <Link

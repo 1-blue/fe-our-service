@@ -8,12 +8,25 @@ import { AcademicCapIcon } from "@heroicons/react/24/solid";
 
 import { routes } from "#/constants/routes";
 
+interface Props {
+  /**
+   * `tailwindcss`에 사용할 `calssName`
+   * @default ""
+   */
+  className?: string;
+}
+
 /** 공용 레이아웃 네비게이션 컴포넌트 */
-const Nav: React.FC = () => {
+const PCNav: React.FC<Props> = ({ className }) => {
   const pathname = usePathname();
 
   return (
-    <nav className="w-[300px] flex flex-col bg-depth-2 border-r-2 border-b-2 border-contour">
+    <nav
+      className={twJoin(
+        "w-[260px] flex flex-col bg-depth-2 border-r-2 border-b-2 border-contour",
+        className
+      )}
+    >
       <Link href="/" className="flex space-x-2 px-12 py-6">
         {/* FIXME: 로고 추가하기 */}
         <AcademicCapIcon className="h-6 w-6 text-white" />
@@ -37,7 +50,7 @@ const Nav: React.FC = () => {
           </span>
           {pathname === path && (
             <motion.div
-              layoutId="route-ball"
+              layoutId="route-ball-to-pc"
               className="!ml-auto w-2 h-2 rounded-full bg-main-400"
             />
           )}
@@ -47,4 +60,4 @@ const Nav: React.FC = () => {
   );
 };
 
-export default Nav;
+export default PCNav;
