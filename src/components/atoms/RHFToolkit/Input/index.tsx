@@ -7,6 +7,13 @@ import {
 } from "react-hook-form";
 import { twMerge } from "tailwind-merge";
 
+/**
+ * + 인풋 형태
+ *   1. `square`: 사각형 형태
+ *   2. `line`: 라인 형태
+ */
+type InputShape = "square" | "line";
+
 interface Props<T extends FieldValues>
   extends React.InputHTMLAttributes<HTMLInputElement> {
   /** `<label>`에 사용할 렌더링될 이름 */
@@ -34,6 +41,16 @@ interface Props<T extends FieldValues>
     /** 인풋 우측끝에 넣은 엘리먼트를 버튼으로 사용할 경우 */
     isButton?: boolean;
   };
+  /**
+   * 라벨 숨길지 여부
+   * @default false
+   */
+  hiddenLabel?: boolean;
+  /**
+   * 인풋 형태
+   * @default square
+   */
+  shape?: InputShape;
 }
 
 /**
@@ -75,6 +92,8 @@ const Input = <T extends FieldValues>({
   left,
   right,
   className,
+  hiddenLabel = false,
+  shape = "square",
   ...props
 }: Props<T>) => {
   const {
@@ -94,15 +113,17 @@ const Input = <T extends FieldValues>({
       {error && error.message && (
         <span
           role="alert"
-          className="mx-1 mt-1.5 text-xs text-red-500 font-semibold"
+          className="mx-1 mt-1.5 text-xs text-red-500 font-semibold whitespace-pre-wrap"
         >
-          {String(error.message)}
+          {String(error.message).replaceAll(",", "\n")}
         </span>
       )}
       <div
         className={twMerge(
-          "peer flex min-w-[400px] w-full border-2 rounded-md border-line-default transition-colors hover:border-main-500 focus-within:border-main-600",
-          error && "!border-red-500"
+          "peer flex min-w-[400px] w-full py-2 border-line-default transition-colors hover:border-main-500 focus-within:border-main-600",
+          error && "!border-red-500",
+          shape === "square" && "px-3 border-2 rounded-md",
+          shape === "line" && "px-2 border-b-2"
         )}
       >
         {left &&
@@ -124,7 +145,7 @@ const Input = <T extends FieldValues>({
           id={name}
           data-testid={name}
           className={twMerge(
-            "px-3 py-2 flex-1 bg-transparent outline-none text-text-default transition-colors placeholder:text-sm placeholder:text-text-dark hover:border-main-500 focus:border-main-600 hover:z-10 focus:z-10",
+            "flex-1 bg-transparent outline-none text-text-default transition-colors placeholder:text-sm placeholder:text-text-dark hover:border-main-500 focus:border-main-600 hover:z-10 focus:z-10",
             className
           )}
         />
@@ -142,15 +163,17 @@ const Input = <T extends FieldValues>({
             </div>
           ))}
       </div>
-      <label
-        htmlFor={name}
-        className={twMerge(
-          "mb-0.5 text-text-default font-semibold cursor-pointer transition-colors hover:text-main-500 peer-hover:text-main-500 peer-focus-within:text-main-600",
-          error && "!text-red-500"
-        )}
-      >
-        {displayName || name}
-      </label>
+      {!hiddenLabel && (
+        <label
+          htmlFor={name}
+          className={twMerge(
+            "mb-0.5 text-text-default font-semibold text-xs cursor-pointer transition-colors hover:text-main-500 peer-hover:text-main-500 peer-focus-within:text-main-600",
+            error && "!text-red-500"
+          )}
+        >
+          {displayName || name}
+        </label>
+      )}
     </fieldset>
   );
 };

@@ -91,7 +91,9 @@ const Toast: React.FC<Prop> = ({
           {type === "success" && <CheckCircleIcon className="w-6 h-6" />}
           {type === "warning" && <ExclamationCircleIcon className="w-6 h-6" />}
           {type === "error" && <XCircleIcon className="w-6 h-6" />}
-          <span className="whitespace-pre-wrap">{message}</span>
+          <span className="whitespace-pre-wrap">
+            {String(message).replaceAll(",", "\n")}
+          </span>
         </motion.div>
       )}
     </AnimatePresence>

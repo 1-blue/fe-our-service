@@ -7,6 +7,7 @@ import { twJoin } from "tailwind-merge";
 import { motion } from "framer-motion";
 
 import { routes } from "#/constants/routes";
+import useMe from "#/hooks/queries";
 
 interface Props {
   /**
@@ -18,8 +19,7 @@ interface Props {
 
 const MobileNav: React.FC<Props> = ({ className = "" }) => {
   const pathname = usePathname();
-  // TODO:
-  const me = true;
+  const { me } = useMe();
 
   /** 로그인 여부에 따라서 네비게이션에 사용할 라우팅 필터링 */
   const filteredRoutes = useMemo(

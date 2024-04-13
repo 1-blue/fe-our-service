@@ -38,7 +38,7 @@ const Button: React.FC<React.PropsWithChildren<Props>> = ({
     <motion.button
       {...props}
       className={twMerge(
-        "group overflow-hidden relative px-3 py-1 flex items-center text-base text-text-light border-2 border-line-light rounded-sm transition-colors",
+        "group overflow-hidden relative px-3 py-1 flex justify-center items-center text-base text-text-light border-2 border-line-light rounded-sm transition-colors",
         primary &&
           "border-main-500 active:border-main-600 text-main-500 active:text-main-600",
         secondary &&
@@ -50,7 +50,7 @@ const Button: React.FC<React.PropsWithChildren<Props>> = ({
           "bg-text-light text-depth-1 hover:text-depth-1 active:text-depth-1",
         fill && primary && "bg-main-500 active:bg-main-600",
         fill && secondary && "bg-special-500 active:bg-special-600",
-        className
+        className,
       )}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
@@ -70,7 +70,7 @@ const Button: React.FC<React.PropsWithChildren<Props>> = ({
               !secondary &&
               "border-depth-1 group-hover:border-depth-1 group-active:border-depth-1",
             spinnerClassName,
-            "border-b-transparent group-hover:border-b-transparent group-active:border-b-transparent"
+            "border-b-transparent group-hover:border-b-transparent group-active:border-b-transparent",
           )}
         />
       )}

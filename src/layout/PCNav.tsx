@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import { AcademicCapIcon } from "@heroicons/react/24/solid";
 
 import { routes } from "#/constants/routes";
+import useMe from "#/hooks/queries/useMe";
+import { useMemo } from "react";
 
 interface Props {
   /**
@@ -19,6 +21,18 @@ interface Props {
 /** 공용 레이아웃 네비게이션 컴포넌트 */
 const PCNav: React.FC<Props> = ({ className }) => {
   const pathname = usePathname();
+  const { me } = useMe();
+
+  /** 로그인 여부에 따라서 네비게이션에 사용할 라우팅 필터링 */
+  const filteredRoutes = useMemo(
+    () =>
+      routes.filter(({ type }) => {
+        if (type === "ALL") return true;
+        if (me && type === "LOGGED_IN") return true;
+        if (!me && type === "LOGGED_OUT") return true;
+      }),
+    [me]
+  );
 
   return (
     <nav
@@ -32,7 +46,7 @@ const PCNav: React.FC<Props> = ({ className }) => {
         <AcademicCapIcon className="h-6 w-6 text-white" />
         <span>세상에 없는 서비스</span>
       </Link>
-      {routes.map(({ label, path, Icon }) => (
+      {filteredRoutes.map(({ label, path, Icon }) => (
         <Link
           key={path}
           href={path}
