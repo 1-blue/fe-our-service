@@ -40,8 +40,8 @@ export const Default: Story = {
   args: {
     children: (
       <>
-        <aside className="flex justify-center items-center h-full">
-          <span className="font-bold text-2xl">대충 모달</span>
+        <aside className="flex h-full items-center justify-center">
+          <span className="text-2xl font-bold">대충 모달</span>
         </aside>
       </>
     ),
@@ -51,8 +51,8 @@ export const Blur: Story = {
   args: {
     children: (
       <>
-        <aside className="flex justify-center items-center h-full">
-          <span className="font-bold text-2xl">대충 모달</span>
+        <aside className="flex h-full items-center justify-center">
+          <span className="text-2xl font-bold">대충 모달</span>
         </aside>
       </>
     ),

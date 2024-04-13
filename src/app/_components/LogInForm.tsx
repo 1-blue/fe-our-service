@@ -59,26 +59,26 @@ const LoginForm: React.FC = () => {
         type="submit"
         primary
         fill
-        className="w-full flex justify-center font-semibold"
+        className="flex w-full justify-center font-semibold"
       >
         로그인
       </Button>
 
-      <div className="relative w-full my-6 h-0.5 bg-line-default" />
+      <div className="relative my-6 h-0.5 w-full bg-line-default" />
 
       <Button
         type="submit"
         secondary
         fill
-        className="w-full flex justify-center font-semibold"
+        className="flex w-full justify-center font-semibold"
       >
         임시 로그인
       </Button>
-      <div className="w-full flex gap-4">
+      <div className="flex w-full gap-4">
         <Button
           type="button"
           fill
-          className="flex-1 flex justify-center bg-yellow-400 border-yellow-400 text-white hover:text-white active:text-white gap-2 font-semibold"
+          className="flex flex-1 justify-center gap-2 border-yellow-400 bg-yellow-400 font-semibold text-white hover:text-white active:text-white"
           onClick={kakaoLogin}
         >
           <Icon name="Kakao" size={18} fill="white" />
@@ -87,7 +87,7 @@ const LoginForm: React.FC = () => {
         <Button
           type="button"
           fill
-          className="flex-1 flex justify-center bg-red-300 border-red-300 text-white hover:text-white active:text-white gap-2 font-semibold"
+          className="flex flex-1 justify-center gap-2 border-red-300 bg-red-300 font-semibold text-white hover:text-white active:text-white"
           onClick={googleLogin}
         >
           <Icon name="Google" size={18} fill="white" />
@@ -95,18 +95,18 @@ const LoginForm: React.FC = () => {
         </Button>
       </div>
 
-      <div className="w-full mt-4 flex flex-col gap-2">
+      <div className="mt-4 flex w-full flex-col gap-2">
         <div className="relative h-0.5 bg-line-default" />
         <div className="flex justify-between">
           <Link
             href="/signup"
-            className="text-sm text-sub-400 hover:text-sub-300 underline-offset-4 hover:underline"
+            className="text-sm text-sub-400 underline-offset-4 hover:text-sub-300 hover:underline"
           >
             비밀번호 찾기
           </Link>
           <Link
             href="/signup"
-            className="text-sm text-sub-400 hover:text-sub-300 underline-offset-4 hover:underline"
+            className="text-sm text-sub-400 underline-offset-4 hover:text-sub-300 hover:underline"
           >
             회원가입
           </Link>

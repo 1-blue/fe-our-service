@@ -17,7 +17,7 @@ export const postCreatePresignedURL: PostCreatePresignedURLAPIHandler = async ({
       credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
-    }
+    },
   ).then(async (res) => {
     // json 형태로 응답을 주지 않는 경우 에러 발생을 처리하기 위함
     const parsedText = await res.text();
@@ -66,7 +66,7 @@ export const postSaveImageToDB: PostSaveImageToDBAPIHandler = async ({
       credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
-    }
+    },
   ).then(async (res) => {
     // json 형태로 응답을 주지 않는 경우 에러 발생을 처리하기 위함
     const parsedText = await res.text();
@@ -91,7 +91,7 @@ export const patchMoveImageToDB: PatchMoveImageToDBAPIHandler = async ({
       credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
-    }
+    },
   ).then(async (res) => {
     // json 형태로 응답을 주지 않는 경우 에러 발생을 처리하기 위함
     const parsedText = await res.text();

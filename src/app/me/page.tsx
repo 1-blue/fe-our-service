@@ -1,9 +1,10 @@
 "use client";
 
-import useMe from "#/hooks/queries";
+import { useEffect } from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+
+import useMe from "#/hooks/queries";
 
 const Page: NextPage = () => {
   const router = useRouter();

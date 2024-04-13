@@ -53,7 +53,7 @@ export const Custom: Story = {
         </div>
       ),
       footer: (
-        <div className="flex gap-2 ml-auto">
+        <div className="ml-auto flex gap-2">
           <Button
             primary
             type="button"

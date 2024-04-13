@@ -31,14 +31,14 @@ const PCNav: React.FC<Props> = ({ className }) => {
         if (me && type === "LOGGED_IN") return true;
         if (!me && type === "LOGGED_OUT") return true;
       }),
-    [me]
+    [me],
   );
 
   return (
     <nav
       className={twJoin(
-        "w-[260px] flex flex-col bg-depth-2 border-r-2 border-b-2 border-contour",
-        className
+        "flex w-[260px] flex-col border-b-2 border-r-2 border-contour bg-depth-2",
+        className,
       )}
     >
       <Link href="/" className="flex space-x-2 px-12 py-6">
@@ -50,22 +50,22 @@ const PCNav: React.FC<Props> = ({ className }) => {
         <Link
           key={path}
           href={path}
-          className="px-12 py-4 flex items-center space-x-2"
+          className="flex items-center space-x-2 px-12 py-4"
         >
           {pathname === path ? (
-            <Icon.Active className="w-6 h-6 text-main-400" />
+            <Icon.Active className="h-6 w-6 text-main-400" />
           ) : (
-            <Icon.Normal className="w-6 h-6" />
+            <Icon.Normal className="h-6 w-6" />
           )}
           <span
-            className={twJoin(pathname === path && "text-main-400 font-bold")}
+            className={twJoin(pathname === path && "font-bold text-main-400")}
           >
             {label}
           </span>
           {pathname === path && (
             <motion.div
               layoutId="route-ball-to-pc"
-              className="!ml-auto w-2 h-2 rounded-full bg-main-400"
+              className="!ml-auto h-2 w-2 rounded-full bg-main-400"
             />
           )}
         </Link>

@@ -119,23 +119,23 @@ const Modal: React.FC<Props> = ({
   return (
     <aside
       className={twMerge(
-        "fixed inset-0 pt-[10%] z-[1] flex flex-col items-center shadow-md",
-        "before:content-[''] before:-z-[1] before:fixed before:inset-0 before:bg-black/70",
-        isBlur && "before:backdrop-blur-sm"
+        "fixed inset-0 z-[1] flex flex-col items-center pt-[10%] shadow-md",
+        "before:fixed before:inset-0 before:-z-[1] before:bg-black/70 before:content-['']",
+        isBlur && "before:backdrop-blur-sm",
       )}
       onClick={onClickOutside}
     >
       <motion.div
         ref={modalRef}
         className={twMerge(
-          "relative px-6 py-4 rounded-md bg-white text-black max-w-[500px] min-w-[300px]",
-          className
+          "relative min-w-[300px] max-w-[500px] rounded-md bg-white px-6 py-4 text-black",
+          className,
         )}
         layoutId="modal"
       >
         <XMarkIcon
           role="button"
-          className="absolute top-3 right-4 w-6 h-6 text-gray-500 stroke-[3px] transition-all hover:scale-110"
+          className="absolute right-4 top-3 h-6 w-6 stroke-[3px] text-gray-500 transition-all hover:scale-110"
           onClick={closeModal}
         />
         {/* 상단 */}
@@ -155,7 +155,7 @@ const Modal: React.FC<Props> = ({
             {iconType === "error" && (
               <XCircleIcon className="w-10 self-start text-red-500" />
             )}
-            <h3 className="font-bold text-xl mr-10">{title}</h3>
+            <h3 className="mr-10 text-xl font-bold">{title}</h3>
           </section>
         )}
 
@@ -173,12 +173,12 @@ const Modal: React.FC<Props> = ({
           {custom?.footer ? (
             <>{custom.footer}</>
           ) : (
-            <section className="flex gap-3 ml-auto" onClick={closeModal}>
+            <section className="ml-auto flex gap-3" onClick={closeModal}>
               {cancel && (
                 <Button
                   type="button"
                   onClick={cancel.onClick}
-                  className="text-xs font-bold rounded-md text-sub-400 border-sub-300"
+                  className="rounded-md border-sub-300 text-xs font-bold text-sub-400"
                 >
                   {cancel.label}
                 </Button>
@@ -188,7 +188,7 @@ const Modal: React.FC<Props> = ({
                 fill
                 type="button"
                 onClick={confirm?.onClick}
-                className="text-xs font-bold rounded-md"
+                className="rounded-md text-xs font-bold"
               >
                 {confirm?.label || "확인"}
               </Button>

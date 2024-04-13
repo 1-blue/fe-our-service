@@ -12,7 +12,7 @@ const Page: NextPage = () => {
   return (
     <Dim onClick={() => router.back()}>
       <aside
-        className="absolute top-0 left-1/2 -translate-x-1/2 mt-36 bg-depth-1 rounded-md"
+        className="absolute left-1/2 top-0 mt-36 -translate-x-1/2 rounded-md bg-depth-1"
         onClick={(e) => e.stopPropagation()}
       >
         <LoginForm />

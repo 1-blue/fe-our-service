@@ -89,30 +89,30 @@ const Badge: React.FC<React.PropsWithChildren<Props>> = ({
 }) => {
   return (
     <div
-      className={twMerge("relative inline-flex", text && "gap-2 items-center")}
+      className={twMerge("relative inline-flex", text && "items-center gap-2")}
     >
       {children}
       <div
         className={twMerge(
           "relative",
-          children && "absolute top-0 right-0 translate-x-1/2 -translate-y-1/2",
+          children && "absolute right-0 top-0 -translate-y-1/2 translate-x-1/2",
           convertStatusToColor[status],
 
           /** 점형태의 뱃지인 경우 */
-          dot && "w-3 h-3 p-0 rounded-full",
+          dot && "h-3 w-3 rounded-full p-0",
 
           /** 숫자형태의 뱃지인 경우 */
-          count && "w-auto h-auto px-1.5 py-0.5 text-xs font-medium rounded-md",
+          count && "h-auto w-auto rounded-md px-1.5 py-0.5 text-xs font-medium",
 
           /** ping 애니메이션이 적용된 경우 */
           showAnimation && "after:absolute after:inset-0",
           showAnimation && convertStatusToColorByAnimation[status],
           /** 점형태에서 애니메이션이 적용된 경우 */
-          showAnimation && dot && "after:rounded-full after:animate-ping",
+          showAnimation && dot && "after:animate-ping after:rounded-full",
           /** 숫자형태의 애니메이션인 경우 */
-          count && showAnimation && "after:rounded-md after:animate-ping-badge",
+          count && showAnimation && "after:animate-ping-badge after:rounded-md",
 
-          className
+          className,
         )}
       >
         {count && overflowCount < count ? `${overflowCount}+` : count}

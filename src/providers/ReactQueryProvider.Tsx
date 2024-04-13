@@ -29,7 +29,7 @@ const ReactQueryProvider: React.FC<React.PropsWithChildren> = ({
           }
         },
       }),
-    [openToast]
+    [openToast],
   );
   const mutationCache = useMemo(
     () =>
@@ -43,7 +43,7 @@ const ReactQueryProvider: React.FC<React.PropsWithChildren> = ({
           }
         },
       }),
-    [openToast]
+    [openToast],
   );
   const queryClient = useMemo(
     () =>
@@ -54,7 +54,7 @@ const ReactQueryProvider: React.FC<React.PropsWithChildren> = ({
           queries: { retry: false },
         },
       }),
-    [queryCache, mutationCache]
+    [queryCache, mutationCache],
   );
 
   return (

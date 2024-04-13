@@ -28,13 +28,13 @@ const RootLayout: React.FC<React.PropsWithChildren<Props>> = ({
       <head>
         <title>세상에 없는 서비스</title>
       </head>
-      <body className="relative min-h-screen flex flex-col text-white">
+      <body className="relative flex min-h-screen flex-col text-white">
         <ReactQueryProvider>
           <ToastProvider>
             <SnackbarProvider>
-              <div className="flex-1 flex">
+              <div className="flex flex-1">
                 <PCNav className="hidden lg:flex" />
-                <div className="flex-1 flex flex-col">
+                <div className="flex flex-1 flex-col">
                   <Header />
                   <Main>{children}</Main>
                 </div>
@@ -50,12 +50,12 @@ const RootLayout: React.FC<React.PropsWithChildren<Props>> = ({
         {/* 토스트 포탈 */}
         <aside
           id="toast-root"
-          className="fixed left-1/2 my-4 top-0 flex flex-col gap-4 -translate-x-1/2 z-[999]"
+          className="fixed left-1/2 top-0 z-[999] my-4 flex -translate-x-1/2 flex-col gap-4"
         />
         {/* 스낵바 포탈 */}
         <aside
           id="snackbar-root"
-          className="fixed left-1/2 my-6 bottom-0 flex flex-col gap-4 -translate-x-1/2 z-[999]"
+          className="fixed bottom-0 left-1/2 z-[999] my-6 flex -translate-x-1/2 flex-col gap-4"
         />
       </body>
     </html>

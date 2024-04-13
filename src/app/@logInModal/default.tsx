@@ -1,4 +1,4 @@
-const Default = () => {
+const Default: React.FC = () => {
   return null;
 };
 

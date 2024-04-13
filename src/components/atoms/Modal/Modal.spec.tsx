@@ -13,7 +13,7 @@ describe("🚀 공용 모달 컴포넌트 테스트", () => {
           title="기본 모달 제목"
           content="기본 모달 내용"
           cancel={{ label: "취소" }}
-        />
+        />,
       );
 
       const $title = screen.getByText("기본 모달 제목");
@@ -34,7 +34,7 @@ describe("🚀 공용 모달 컴포넌트 테스트", () => {
         <Modal
           closeModal={mockCloseModal}
           cancel={{ label: "기본 모달 취소", onClick: mockCancel }}
-        />
+        />,
       );
 
       fireEvent.click(screen.getByRole("button", { name: "기본 모달 취소" }));
@@ -49,7 +49,7 @@ describe("🚀 공용 모달 컴포넌트 테스트", () => {
         <Modal
           closeModal={mockCloseModal}
           confirm={{ label: "기본 모달 확인", onClick: mockConfirm }}
-        />
+        />,
       );
 
       fireEvent.click(screen.getByRole("button", { name: "기본 모달 확인" }));
@@ -83,7 +83,7 @@ describe("🚀 공용 모달 컴포넌트 테스트", () => {
               </div>
             ),
           }}
-        />
+        />,
       );
 
       const $defaultTitle = screen.queryByText("기본 모달 제목");
@@ -127,7 +127,7 @@ describe("🚀 공용 모달 컴포넌트 테스트", () => {
               </div>
             ),
           }}
-        />
+        />,
       );
 
       fireEvent.click(screen.getByRole("button", { name: "커스텀 모달 취소" }));
@@ -151,7 +151,7 @@ describe("🚀 공용 모달 컴포넌트 테스트", () => {
               </div>
             ),
           }}
-        />
+        />,
       );
 
       fireEvent.click(screen.getByRole("button", { name: "커스텀 모달 확인" }));

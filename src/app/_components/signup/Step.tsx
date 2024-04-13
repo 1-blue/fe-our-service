@@ -88,7 +88,7 @@ const First: React.FC<Omit<Props, "moveToPrevStep">> = ({
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <h2 className="font-semibold text-2xl">🔖 이메일을 입력해주세요 🔖</h2>
+        <h2 className="text-2xl font-semibold">🔖 이메일을 입력해주세요 🔖</h2>
         <span className="text-sm text-sub-400">회원가입에 필요합니다.</span>
       </div>
 
@@ -113,12 +113,12 @@ const First: React.FC<Omit<Props, "moveToPrevStep">> = ({
         onKeyDown={onPressNextButton}
       />
 
-      <div className="flex gap-4 mt-16 font-semibold">
+      <div className="mt-16 flex gap-4 font-semibold">
         <Button
           type="button"
           primary
           fill
-          className="w-full h-12 text-lg"
+          className="h-12 w-full text-lg"
           onClick={onClickNextButton}
         >
           다음
@@ -242,7 +242,7 @@ const Second: React.FC<Props> = ({
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <h2 className="font-semibold text-2xl">
+        <h2 className="text-2xl font-semibold">
           🪙 이메일 검증 토큰을 입력해주세요 🪙
         </h2>
         <span className="text-sm text-sub-400">
@@ -256,7 +256,7 @@ const Second: React.FC<Props> = ({
             className="my-4 gap-2"
             secondary
           >
-            <ArrowPathIcon className="w-5 h-5" />
+            <ArrowPathIcon className="h-5 w-5" />
             <span>이메일 재전송하기</span>
           </Button>
         </Countdown>
@@ -282,19 +282,19 @@ const Second: React.FC<Props> = ({
 
         <button
           type="button"
-          className="flex justify-end items-center gap-1 w-full mt-1 text-xs text-special-200 opacity-70 hover:underline underline-offset-4"
+          className="mt-1 flex w-full items-center justify-end gap-1 text-xs text-special-200 underline-offset-4 opacity-70 hover:underline"
           onClick={onClickResendToken}
         >
-          <ArrowPathIcon className="w-4 h-4" />
+          <ArrowPathIcon className="h-4 w-4" />
           <span>토큰 재전송</span>
         </button>
       </div>
 
-      <div className="flex gap-4 mt-16 font-semibold">
+      <div className="mt-16 flex gap-4 font-semibold">
         <Button
           type="button"
           fill
-          className="w-full h-12 text-lg"
+          className="h-12 w-full text-lg"
           onClick={onClickPrevButton}
         >
           이전
@@ -303,7 +303,7 @@ const Second: React.FC<Props> = ({
           type="button"
           primary
           fill
-          className="w-full h-12 text-lg"
+          className="h-12 w-full text-lg"
           onClick={onClickNextButton}
         >
           다음
@@ -362,7 +362,7 @@ const Third: React.FC<Props> = ({
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <h2 className="font-semibold text-2xl">
+        <h2 className="text-2xl font-semibold">
           🔐 비밀번호를 입력해주세요 🔐
         </h2>
         <span className="text-sm text-sub-400">
@@ -395,11 +395,11 @@ const Third: React.FC<Props> = ({
         onKeyDown={onPressNextButton}
       />
 
-      <div className="flex gap-4 mt-16 font-semibold">
+      <div className="mt-16 flex gap-4 font-semibold">
         <Button
           type="button"
           fill
-          className="w-full h-12 text-lg"
+          className="h-12 w-full text-lg"
           onClick={onClickPrevButton}
         >
           이전
@@ -408,7 +408,7 @@ const Third: React.FC<Props> = ({
           type="button"
           primary
           fill
-          className="w-full h-12 text-lg"
+          className="h-12 w-full text-lg"
           onClick={onClickNextButton}
         >
           다음
@@ -476,7 +476,7 @@ const Fourth: React.FC<Props> = ({
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <h2 className="font-semibold text-2xl">✏️ 닉네임을 입력해주세요 ✏️</h2>
+        <h2 className="text-2xl font-semibold">✏️ 닉네임을 입력해주세요 ✏️</h2>
       </div>
 
       <RHFToolkit.Input
@@ -496,11 +496,11 @@ const Fourth: React.FC<Props> = ({
         onKeyDown={onPressNextButton}
       />
 
-      <div className="flex gap-4 mt-16 font-semibold">
+      <div className="mt-16 flex gap-4 font-semibold">
         <Button
           type="button"
           fill
-          className="w-full h-12 text-lg"
+          className="h-12 w-full text-lg"
           onClick={onClickPrevButton}
         >
           이전
@@ -509,7 +509,7 @@ const Fourth: React.FC<Props> = ({
           type="button"
           primary
           fill
-          className="w-full h-12 text-lg"
+          className="h-12 w-full text-lg"
           onClick={onClickNextButton}
         >
           다음
@@ -576,8 +576,8 @@ const Fifth: React.FC<
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <h2 className="font-semibold text-2xl">✏️ 닉네임을 입력해주세요 ✏️</h2>
-        <span className="text-sm text-sub-400 whitespace-pre-wrap">
+        <h2 className="text-2xl font-semibold">✏️ 닉네임을 입력해주세요 ✏️</h2>
+        <span className="whitespace-pre-wrap text-sm text-sub-400">
           {
             "( 마지막 단계 ) 다음을 누르면 회원가입이 완료됩니다.\n( 아래 데이터 입력은 필수가 아닙니다 ! )"
           }
@@ -590,7 +590,7 @@ const Fifth: React.FC<
           className="mx-auto bg-sub-200"
           imagePath={imagePath}
           size="xl"
-          icon={<UserIcon className="w-full h-full p-1.5 text-main-500" />}
+          icon={<UserIcon className="h-full w-full p-1.5 text-main-500" />}
           onClick={() => imageInputRef.current?.click()}
         />
         <input
@@ -618,16 +618,16 @@ const Fifth: React.FC<
         }}
       />
 
-      <div className="flex gap-4 mt-16 font-semibold">
+      <div className="mt-16 flex gap-4 font-semibold">
         <Button
           type="button"
           fill
-          className="w-full h-12 text-lg"
+          className="h-12 w-full text-lg"
           onClick={onClickPrevButton}
         >
           이전
         </Button>
-        <Button type="submit" primary fill className="w-full h-12 text-lg">
+        <Button type="submit" primary fill className="h-12 w-full text-lg">
           회원가입
         </Button>
       </div>

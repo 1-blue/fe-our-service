@@ -76,7 +76,7 @@ export const Example: Story = {
           <Badge
             status="processing"
             showAnimation
-            text={<span className="font-bold text-2xl">텍스트 컴포넌트</span>}
+            text={<span className="text-2xl font-bold">텍스트 컴포넌트</span>}
           />
           <div className="inline-block">
             <Badge

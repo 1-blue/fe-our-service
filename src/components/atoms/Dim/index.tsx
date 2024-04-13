@@ -21,7 +21,7 @@ const Dim: React.FC<React.PropsWithChildren<Props>> = ({
       className={twJoin(
         "fixed inset-0 bg-black/70",
         isBlur && "backdrop-blur-sm",
-        className
+        className,
       )}
     >
       {children}

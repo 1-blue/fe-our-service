@@ -39,7 +39,7 @@ describe("🚀 공용 스낵바 컴포넌트 테스트", () => {
         expect($snackbar).toBeNull();
         expect($snackbar).not.toBeInTheDocument();
       },
-      { timeout: 1000 }
+      { timeout: 1000 },
     );
   });
   test("스낵바 닫기 함수가 동작하는지?", async () => {
@@ -52,7 +52,7 @@ describe("🚀 공용 스낵바 컴포넌트 테스트", () => {
         message: "공용 스낵바 - 3",
         timer: 500_000,
         action,
-      })
+      }),
     );
 
     act(() => closeSnackbar(SNACKBAR_ID));
@@ -65,7 +65,7 @@ describe("🚀 공용 스낵바 컴포넌트 테스트", () => {
         expect($snackbar).toBeNull();
         expect($snackbar).not.toBeInTheDocument();
       },
-      { timeout: 1000 }
+      { timeout: 1000 },
     );
   });
   test("스낵바 액션 함수가 동작하는지?", async () => {

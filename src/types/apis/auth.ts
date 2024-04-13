@@ -8,7 +8,7 @@ export interface PostLogInAPIRequest
 export interface PostLogInAPIResponse extends Omit<UserEntity, "password"> {}
 /** 로그인 요청 & 응답 핸들러 타입 */
 export type PostLogInAPIHandler = (
-  args: PostLogInAPIRequest
+  args: PostLogInAPIRequest,
 ) => Promise<PostLogInAPIResponse>;
 
 /** 로그아웃 요청 타입 */
@@ -17,5 +17,5 @@ export interface PostLogOutAPIRequest extends APIRuquestType {}
 export interface PostLogOutAPIResponse {}
 /** 로그아웃 요청 & 응답 핸들러 타입 */
 export type PostLogOutAPIHandler = (
-  args: PostLogInAPIRequest
+  args: PostLogInAPIRequest,
 ) => Promise<PostLogInAPIResponse>;

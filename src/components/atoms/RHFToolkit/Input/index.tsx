@@ -113,29 +113,29 @@ const Input = <T extends FieldValues>({
       {error && error.message && (
         <span
           role="alert"
-          className="mx-1 mt-1.5 text-xs text-red-500 font-semibold whitespace-pre-wrap"
+          className="mx-1 mt-1.5 whitespace-pre-wrap text-xs font-semibold text-red-500"
         >
           {String(error.message).replaceAll(",", "\n")}
         </span>
       )}
       <div
         className={twMerge(
-          "peer flex min-w-[400px] w-full py-2 border-line-default transition-colors hover:border-main-500 focus-within:border-main-600",
+          "peer flex w-full min-w-[400px] border-line-default py-2 transition-colors focus-within:border-main-600 hover:border-main-500",
           error && "!border-red-500",
-          shape === "square" && "px-3 border-2 rounded-md",
-          shape === "line" && "px-2 border-b-2"
+          shape === "square" && "rounded-md border-2 px-3",
+          shape === "line" && "border-b-2 px-2",
         )}
       >
         {left &&
           (left.isButton ? (
             <button
               type="button"
-              className="flex justify-center items-center pl-2 py-2 transition-colors hover:text-main-500 focus:text-main-600"
+              className="flex items-center justify-center py-2 pl-2 transition-colors hover:text-main-500 focus:text-main-600"
             >
               {left.children}
             </button>
           ) : (
-            <div className="flex justify-center items-center pl-2 py-2">
+            <div className="flex items-center justify-center py-2 pl-2">
               {left.children}
             </div>
           ))}
@@ -145,20 +145,20 @@ const Input = <T extends FieldValues>({
           id={name}
           data-testid={name}
           className={twMerge(
-            "flex-1 bg-transparent outline-none text-text-default transition-colors placeholder:text-sm placeholder:text-text-dark hover:border-main-500 focus:border-main-600 hover:z-10 focus:z-10",
-            className
+            "flex-1 bg-transparent text-text-default outline-none transition-colors placeholder:text-sm placeholder:text-text-dark hover:z-10 hover:border-main-500 focus:z-10 focus:border-main-600",
+            className,
           )}
         />
         {right &&
           (right.isButton ? (
             <button
               type="button"
-              className="flex justify-center items-center pr-2 py-2 transition-colors hover:text-main-500 focus:text-main-600"
+              className="flex items-center justify-center py-2 pr-2 transition-colors hover:text-main-500 focus:text-main-600"
             >
               {right.children}
             </button>
           ) : (
-            <div className="flex justify-center items-center pr-2 py-2">
+            <div className="flex items-center justify-center py-2 pr-2">
               {right.children}
             </div>
           ))}
@@ -167,8 +167,8 @@ const Input = <T extends FieldValues>({
         <label
           htmlFor={name}
           className={twMerge(
-            "mb-0.5 text-text-default font-semibold text-xs cursor-pointer transition-colors hover:text-main-500 peer-hover:text-main-500 peer-focus-within:text-main-600",
-            error && "!text-red-500"
+            "mb-0.5 cursor-pointer text-xs font-semibold text-text-default transition-colors hover:text-main-500 peer-focus-within:text-main-600 peer-hover:text-main-500",
+            error && "!text-red-500",
           )}
         >
           {displayName || name}

@@ -27,7 +27,7 @@ describe("🚀 공용 토스트 컴포넌트 테스트", () => {
       () => {
         expect(screen.queryByText("공용 토스트 - 2")).toBeNull();
       },
-      { timeout: 1000 }
+      { timeout: 1000 },
     );
   });
   test("토스트 닫기 함수가 동작하는지?", async () => {
@@ -35,7 +35,7 @@ describe("🚀 공용 토스트 컴포넌트 테스트", () => {
     const { openToast, closeToast } = useToastStore.getState();
 
     act(() =>
-      openToast({ id: TOAST_ID, message: "공용 토스트 - 3", timer: 500_000 })
+      openToast({ id: TOAST_ID, message: "공용 토스트 - 3", timer: 500_000 }),
     );
 
     act(() => closeToast(TOAST_ID));
@@ -48,7 +48,7 @@ describe("🚀 공용 토스트 컴포넌트 테스트", () => {
         expect($snackbar).toBeNull();
         expect($snackbar).not.toBeInTheDocument();
       },
-      { timeout: 1000 }
+      { timeout: 1000 },
     );
   });
   test("클릭하면 사라지는지?", async () => {
@@ -67,7 +67,7 @@ describe("🚀 공용 토스트 컴포넌트 테스트", () => {
         expect($toast).toBeNull();
         expect($toast).not.toBeInTheDocument();
       },
-      { timeout: 1000 }
+      { timeout: 1000 },
     );
   });
 });

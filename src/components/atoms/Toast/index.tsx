@@ -74,12 +74,12 @@ const Toast: React.FC<Prop> = ({
       {isShow && (
         <motion.div
           className={twMerge(
-            "inline-flex gap-1 px-3 py-2 text-white rounded-md shadow-md",
+            "inline-flex gap-1 rounded-md px-3 py-2 text-white shadow-md",
             closeOnClick && "cursor-pointer",
             type === "info" && "bg-blue-500",
             type === "success" && "bg-green-500",
             type === "warning" && "bg-yellow-500",
-            type === "error" && "bg-red-500"
+            type === "error" && "bg-red-500",
           )}
           initial={{ y: "-100%", opacity: 0, scale: 0.8 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
@@ -87,10 +87,10 @@ const Toast: React.FC<Prop> = ({
           transition={{ type: "spring", stiffness: 150, damping: 15 }}
           onClick={onClickCloseButton}
         >
-          {type === "info" && <InformationCircleIcon className="w-6 h-6" />}
-          {type === "success" && <CheckCircleIcon className="w-6 h-6" />}
-          {type === "warning" && <ExclamationCircleIcon className="w-6 h-6" />}
-          {type === "error" && <XCircleIcon className="w-6 h-6" />}
+          {type === "info" && <InformationCircleIcon className="h-6 w-6" />}
+          {type === "success" && <CheckCircleIcon className="h-6 w-6" />}
+          {type === "warning" && <ExclamationCircleIcon className="h-6 w-6" />}
+          {type === "error" && <XCircleIcon className="h-6 w-6" />}
           <span className="whitespace-pre-wrap">
             {String(message).replaceAll(",", "\n")}
           </span>

@@ -14,12 +14,12 @@ const renderWithProviders = (ui: React.ReactElement) => {
         {/* 토스트 포탈 */}
         <aside
           id="toast-root"
-          className="fixed left-1/2 my-4 top-0 flex flex-col gap-4 -translate-x-1/2 z-[999]"
+          className="fixed left-1/2 top-0 z-[999] my-4 flex -translate-x-1/2 flex-col gap-4"
         />
         {/* 스낵바 포탈 */}
         <aside
           id="snackbar-root"
-          className="fixed left-1/2 my-6 bottom-0 flex flex-col gap-4 -translate-x-1/2 z-[999]"
+          className="fixed bottom-0 left-1/2 z-[999] my-6 flex -translate-x-1/2 flex-col gap-4"
         />
       </>
     );

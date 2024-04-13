@@ -21,7 +21,7 @@ const Countdown: React.FC<React.PropsWithChildren<Props>> = ({
   children,
 }) => {
   const [targetDate, setTargetDate] = useState(
-    new Date(new Date().getTime() + time)
+    new Date(new Date().getTime() + time),
   );
   const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -52,9 +52,9 @@ const Countdown: React.FC<React.PropsWithChildren<Props>> = ({
   if (countdownTime <= 0) return <>{children}</>;
 
   return (
-    <div className={twJoin("flex gap-3 items-center", className)}>
+    <div className={twJoin("flex items-center gap-3", className)}>
       <span className="text-xl">남은 시간: </span>
-      <div className="flex gap-1 items-center">
+      <div className="flex items-center gap-1">
         <span className="countdown font-mono text-4xl">
           <span
             style={
@@ -67,7 +67,7 @@ const Countdown: React.FC<React.PropsWithChildren<Props>> = ({
         <span>분</span>
       </div>
 
-      <div className="flex gap-1 items-center">
+      <div className="flex items-center gap-1">
         <span className="countdown font-mono text-4xl">
           <span
             style={

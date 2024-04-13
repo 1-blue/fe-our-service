@@ -7,7 +7,7 @@ export interface PostSendTokenByEmailAPIRequest
 export interface PostSendTokenByEmailAPIResponse {}
 /** 이메일을 통해 토큰 전달 요청 & 응답 핸들러 타입 */
 export type PostSendTokenByEmailAPIHandler = (
-  args: PostSendTokenByEmailAPIRequest
+  args: PostSendTokenByEmailAPIRequest,
 ) => Promise<PostSendTokenByEmailAPIResponse>;
 
 /** 이메일 인증 토큰 유효성 검사 요청 타입 */
@@ -17,5 +17,5 @@ export interface PostAuthenticateTokenByEmailAPIRequest
 export interface PostAuthenticateTokenByEmailAPIResponse {}
 /** 이메일 인증 토큰 유효성 검사 요청 & 응답 핸들러 타입 */
 export type PostAuthenticateTokenByEmailAPIHandler = (
-  args: PostAuthenticateTokenByEmailAPIRequest
+  args: PostAuthenticateTokenByEmailAPIRequest,
 ) => Promise<PostAuthenticateTokenByEmailAPIResponse>;

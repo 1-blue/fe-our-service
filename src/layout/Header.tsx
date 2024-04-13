@@ -18,19 +18,19 @@ const Header: React.FC = () => {
   const [isFocus, setIsFocus] = useState(false);
 
   return (
-    <header className="px-12 py-8 flex flex-col bg-depth-2 border-b-2 border-contour">
+    <header className="flex flex-col border-b-2 border-contour bg-depth-2 px-12 py-8">
       <section className="flex justify-between">
         <form
           className={twJoin(
-            "group flex items-center p-2 border border-line-default hover:border-main-500 rounded-lg transition-colors",
-            isFocus && "border-main-600"
+            "group flex items-center rounded-lg border border-line-default p-2 transition-colors hover:border-main-500",
+            isFocus && "border-main-600",
           )}
         >
           <button type="submit" className="pl-2 pr-1.5">
             <MagnifyingGlassIcon
               className={twJoin(
-                "w-5 h-5 text-text-default group-hover:text-main-500 transition-colors",
-                isFocus && "text-main-600"
+                "h-5 w-5 text-text-default transition-colors group-hover:text-main-500",
+                isFocus && "text-main-600",
               )}
             />
           </button>
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
             ref={searchRef}
             type="search"
             placeholder="검색"
-            className="h-6 border-none bg-transparent focus:outline-none placeholder:text-sm"
+            className="h-6 border-none bg-transparent placeholder:text-sm focus:outline-none"
             onFocus={() => setIsFocus(true)}
             onBlur={() => setIsFocus(false)}
           />
@@ -47,19 +47,19 @@ const Header: React.FC = () => {
           <button type="button">
             <BellIcon
               role="button"
-              className="w-6 h-6 text-text-default hover:text-main-600 transition-colors"
+              className="h-6 w-6 text-text-default transition-colors hover:text-main-600"
             />
           </button>
           <Link href={me ? "/me" : "/login"}>
             {me ? (
               <UserIcon
                 role="link"
-                className="w-6 h-6 text-text-default hover:text-main-600 transition-colors"
+                className="h-6 w-6 text-text-default transition-colors hover:text-main-600"
               />
             ) : (
               <LockOpenIcon
                 role="link"
-                className="w-6 h-6 text-text-default hover:text-main-600 transition-colors"
+                className="h-6 w-6 text-text-default transition-colors hover:text-main-600"
               />
             )}
           </Link>

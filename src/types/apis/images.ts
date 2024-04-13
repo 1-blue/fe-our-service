@@ -22,7 +22,7 @@ export interface PostCreatePresignedURLAPIResponse {
 }
 /** `presignedURL` 생성 요청 & 응답 핸들러 타입 */
 export type PostCreatePresignedURLAPIHandler = (
-  args: PostCreatePresignedURLAPIRequest
+  args: PostCreatePresignedURLAPIRequest,
 ) => Promise<PostCreatePresignedURLAPIResponse>;
 
 /** `PresignedURL`를 이용해서 `AWS-S3`에 이미지 업로드 요청 타입 */
@@ -34,7 +34,7 @@ export interface PostUploadPresignedURLByPresignedURLAPIRequest
 export interface PostUploadPresignedURLByPresignedURLAPIResponse {}
 /** `PresignedURL`를 이용해서 `AWS-S3`에 이미지 업로드 요청 & 응답 핸들러 타입 */
 export type PostUploadPresignedURLByPresignedURLAPIHandler = (
-  args: PostUploadPresignedURLByPresignedURLAPIRequest
+  args: PostUploadPresignedURLByPresignedURLAPIRequest,
 ) => Promise<PostUploadPresignedURLByPresignedURLAPIResponse>;
 
 /** `S3`에 업로드된 이미지 `DB` 저장 요청 타입 */
@@ -49,7 +49,7 @@ export interface PostSaveImageToDBAPIRequest
 export interface PostSaveImageToDBAPIResponse extends ImageEntity {}
 /** `S3`에 업로드된 이미지 `DB` 저장 요청 & 응답 핸들러 타입 */
 export type PostSaveImageToDBAPIHandler = (
-  args: PostSaveImageToDBAPIRequest
+  args: PostSaveImageToDBAPIRequest,
 ) => Promise<PostSaveImageToDBAPIResponse>;
 
 /** `DB`에 저장된 이미지 위치 이동 요청 타입 */
@@ -63,5 +63,5 @@ export interface PatchMoveImageToDBAPIRequest
 export interface PatchMoveImageToDBAPIResponse extends ImageEntity {}
 /** `DB`에 저장된 이미지 위치 이동 요청 & 응답 핸들러 타입 */
 export type PatchMoveImageToDBAPIHandler = (
-  args: PatchMoveImageToDBAPIRequest
+  args: PatchMoveImageToDBAPIRequest,
 ) => Promise<PatchMoveImageToDBAPIResponse>;
