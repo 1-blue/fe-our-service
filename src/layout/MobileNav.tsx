@@ -7,6 +7,7 @@ import { twJoin } from "tailwind-merge";
 import { motion } from "framer-motion";
 
 import { routes } from "#/constants/routes";
+import useMe from "#/hooks/queries";
 
 interface Props {
   /**
@@ -18,8 +19,7 @@ interface Props {
 
 const MobileNav: React.FC<Props> = ({ className = "" }) => {
   const pathname = usePathname();
-  // TODO:
-  const me = true;
+  const { me } = useMe();
 
   /** 로그인 여부에 따라서 네비게이션에 사용할 라우팅 필터링 */
   const filteredRoutes = useMemo(
@@ -29,37 +29,37 @@ const MobileNav: React.FC<Props> = ({ className = "" }) => {
         if (me && type === "LOGGED_IN") return true;
         if (!me && type === "LOGGED_OUT") return true;
       }),
-    [me]
+    [me],
   );
 
   return (
     <nav
       className={twJoin(
-        "fixed bottom-0 inset-x-0 flex bg-depth-2 border-t border-line-dark",
-        className
+        "fixed inset-x-0 bottom-0 flex border-t border-line-dark bg-depth-2",
+        className,
       )}
     >
       {filteredRoutes.map(({ label, path, Icon }) => (
         <Link
           key={path}
           href={path}
-          className="flex flex-col justify-center items-center flex-1 pt-5 pb-2"
+          className="flex flex-1 flex-col items-center justify-center pb-2 pt-5"
         >
           {pathname === path && (
             <motion.div
               layoutId="route-ball-to-mobile"
-              className="absolute top-2 w-2 h-2 rounded-full bg-main-400"
+              className="absolute top-2 h-2 w-2 rounded-full bg-main-400"
             />
           )}
           {pathname === path ? (
-            <Icon.Active className="z-10 w-6 h-6 text-main-400" />
+            <Icon.Active className="z-10 h-6 w-6 text-main-400" />
           ) : (
-            <Icon.Normal className="z-10 w-6 h-6" />
+            <Icon.Normal className="z-10 h-6 w-6" />
           )}
           <span
             className={twJoin(
               "z-10",
-              pathname === path && "text-main-400 font-bold"
+              pathname === path && "font-bold text-main-400",
             )}
           >
             {label}

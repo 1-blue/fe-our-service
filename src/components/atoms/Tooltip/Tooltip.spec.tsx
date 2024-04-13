@@ -9,7 +9,7 @@ describe("🚀 공용 툴팁 컴포넌트 테스트", () => {
     render(
       <Tooltip element="툴팁에 넣을 요소" placement="top-left">
         공용 툴팁
-      </Tooltip>
+      </Tooltip>,
     );
 
     $tooltip = screen.getByText("공용 툴팁");
@@ -32,7 +32,7 @@ describe("🚀 공용 툴팁 컴포넌트 테스트", () => {
     fireEvent.mouseLeave($tooltip!);
     await waitFor(
       () => expect(screen.queryByText("툴팁에 넣을 요소")).toBeNull(),
-      { timeout: 1000 }
+      { timeout: 1000 },
     );
   });
 });

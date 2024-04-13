@@ -16,7 +16,7 @@ describe("🚀 공용 아바타 컴포넌트 테스트", () => {
   });
   test("이미지 아바타가 렌더링 되는지?", () => {
     render(
-      <Avatar imagePath="https://avatars.githubusercontent.com/u/63289318?v=4" />
+      <Avatar imagePath="https://avatars.githubusercontent.com/u/63289318?v=4" />,
     );
 
     expect(screen.getByRole("img")).toBeInTheDocument();

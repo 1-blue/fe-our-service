@@ -23,7 +23,7 @@ interface Props {
 const Skeleton: React.FC<Props> = ({ className = "" }) => {
   return (
     <div
-      className={twMerge("bg-gray-500 rounded-md animate-skeleton", className)}
+      className={twMerge("animate-skeleton rounded-md bg-gray-500", className)}
       data-testid="skeleton"
     />
   );

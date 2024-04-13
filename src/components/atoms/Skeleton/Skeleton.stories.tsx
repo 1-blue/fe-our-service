@@ -23,11 +23,11 @@ export const Example: Story = {
 export const List: Story = {
   decorators: [
     () => (
-      <section className="flex flex-col gap-4 w-60">
+      <section className="flex w-60 flex-col gap-4">
         {Array(5)
           .fill(null)
           .map((_, i) => (
-            <Skeleton key={i} className="w-full h-6" />
+            <Skeleton key={i} className="h-6 w-full" />
           ))}
       </section>
     ),

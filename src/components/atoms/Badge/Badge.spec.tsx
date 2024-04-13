@@ -9,9 +9,9 @@ describe("🚀 공용 뱃지 컴포넌트 테스트", () => {
       <>
         <Badge text="텍스트 뱃지" />
         <Badge
-          text={<div className="font-bold text-2xl">텍스트 칠드런 뱃지</div>}
+          text={<div className="text-2xl font-bold">텍스트 칠드런 뱃지</div>}
         />
-      </>
+      </>,
     );
 
     expect(screen.getByText("텍스트 뱃지")).toBeInTheDocument();
@@ -21,7 +21,7 @@ describe("🚀 공용 뱃지 컴포넌트 테스트", () => {
     render(
       <Badge>
         <Button>칠드런 뱃지</Button>
-      </Badge>
+      </Badge>,
     );
 
     expect(screen.getByText("칠드런 뱃지")).toBeInTheDocument();

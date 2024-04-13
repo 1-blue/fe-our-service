@@ -13,7 +13,7 @@ const convertSize: Record<Size, twSize> = {
   xl: "w-16 h-16 text-5xl",
 };
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLElement> {
   /**
    * 클래스명 ( `tailwindCss` )
    * @default ""
@@ -49,12 +49,12 @@ interface Props {
    * 아바타로 사용할 이미지 URL
    * @default ""
    */
-  imagePath?: `https://${string}`;
+  imagePath?: string;
 }
 
 /**
  * `framer-motion`과 `tailwindcss`를 사용하는 공용 아바타
- * ( 우선순위: `text` > `icon` > `imagePath` )
+ * ( 우선순위: `imagePath` > `icon` > `text` )
  *
  * @link [디자인 및 속성 참고 - Avatar(Antd)](https://ant.design/components/avatar)
  * @example
@@ -72,24 +72,26 @@ const Avatar: React.FC<Props> = ({
   overflowTextLength = 1,
   icon,
   imagePath = "",
+  ...restProps
 }) => {
   return (
     <figure
+      {...restProps}
       className={twMerge(
-        "flex justify-center items-center overflow-hidden bg-gray-500",
+        "flex items-center justify-center overflow-hidden bg-gray-500",
         rounded ? "rounded-full" : "rounded-md",
-        icon && "p-1",
+        !imagePath && icon && "p-1",
         convertSize[size],
-        className
+        className,
       )}
     >
-      {text && <span>{text.slice(0, overflowTextLength)}</span>}
-
-      {!text && icon && <>{icon}</>}
-
       {/* `Next.js`에 등록한 이미지인 경우와 아닌 경우로 분리해서 처리하기 */}
-      {!text && !icon && imagePath && (
-        <img src={imagePath} alt="아바타 이미지" />
+      {imagePath && <img src={imagePath} alt="아바타 이미지" />}
+
+      {!imagePath && icon && <>{icon}</>}
+
+      {!imagePath && !icon && text && (
+        <span>{text.slice(0, overflowTextLength)}</span>
       )}
     </figure>
   );

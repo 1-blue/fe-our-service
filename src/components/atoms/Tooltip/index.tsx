@@ -133,7 +133,7 @@ const Tooltip: React.FC<Props> = ({
         {isHover && (
           <motion.div
             className={twMerge(
-              "absolute px-4 py-1.5 bg-main-500 rounded-md z-[1] whitespace-nowrap",
+              "absolute z-[1] whitespace-nowrap rounded-md bg-main-500 px-4 py-1.5",
               className,
               // top
               placement.startsWith("top") && "top-0",
@@ -157,7 +157,7 @@ const Tooltip: React.FC<Props> = ({
               placement.startsWith("left") && "left-0",
               placement === "left-top" && "top-0",
               placement === "left" && "top-1/2",
-              placement === "left-bottom" && "bottom-0"
+              placement === "left-bottom" && "bottom-0",
             )}
             variants={variants}
             initial="initial"

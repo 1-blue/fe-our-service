@@ -30,7 +30,7 @@ export const Example: Story = {
   decorators: [
     () => (
       <article className="flex flex-col gap-10">
-        <section className="flex gap-10 justify-between">
+        <section className="flex justify-between gap-10">
           <Tooltip placement="top-left" element="TL">
             <Button loading fill primary className="whitespace-pre">
               {`Top\nLeft`}
@@ -83,7 +83,7 @@ export const Example: Story = {
             </Tooltip>
           </div>
         </section>
-        <section className="flex gap-10 justify-between">
+        <section className="flex justify-between gap-10">
           <Tooltip placement="bottom-left" element="BL">
             <Button loading fill primary className="whitespace-pre">
               {`Bottom\nLeft`}

@@ -38,11 +38,11 @@ const Button: React.FC<React.PropsWithChildren<Props>> = ({
     <motion.button
       {...props}
       className={twMerge(
-        "group overflow-hidden relative px-3 py-1 flex items-center text-base text-text-light border-2 border-line-light rounded-sm transition-colors",
+        "group relative flex items-center justify-center overflow-hidden rounded-sm border-2 border-line-light px-3 py-1 text-base text-text-light transition-colors",
         primary &&
-          "border-main-500 active:border-main-600 text-main-500 active:text-main-600",
+          "border-main-500 text-main-500 active:border-main-600 active:text-main-600",
         secondary &&
-          "border-special-500 active:border-special-600 text-special-500 active:text-special-600",
+          "border-special-500 text-special-500 active:border-special-600 active:text-special-600",
         fill && "text-text-light hover:text-text-light active:text-text-light",
         fill &&
           !primary &&
@@ -50,7 +50,7 @@ const Button: React.FC<React.PropsWithChildren<Props>> = ({
           "bg-text-light text-depth-1 hover:text-depth-1 active:text-depth-1",
         fill && primary && "bg-main-500 active:bg-main-600",
         fill && secondary && "bg-special-500 active:bg-special-600",
-        className
+        className,
       )}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
@@ -58,7 +58,7 @@ const Button: React.FC<React.PropsWithChildren<Props>> = ({
       {loading && (
         <div
           className={twMerge(
-            "w-4 h-4 mr-2 border-[2.5px] border-line-light rounded-full animate-spin transition-colors",
+            "mr-2 h-4 w-4 animate-spin rounded-full border-[2.5px] border-line-light transition-colors",
             primary &&
               "border-main-500 group-hover:border-main-400 group-active:border-main-600",
             secondary &&
@@ -70,7 +70,7 @@ const Button: React.FC<React.PropsWithChildren<Props>> = ({
               !secondary &&
               "border-depth-1 group-hover:border-depth-1 group-active:border-depth-1",
             spinnerClassName,
-            "border-b-transparent group-hover:border-b-transparent group-active:border-b-transparent"
+            "border-b-transparent group-hover:border-b-transparent group-active:border-b-transparent",
           )}
         />
       )}

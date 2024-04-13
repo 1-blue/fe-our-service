@@ -62,7 +62,7 @@ const Snackbar: React.FC<Prop> = ({
       {isShow && (
         <motion.div
           className={twMerge(
-            "inline-flex gap-6 justify-between items-center px-4 py-2.5 bg-main-500 text-white rounded-md shadow-md"
+            "inline-flex items-center justify-between gap-6 rounded-md bg-main-500 px-4 py-2.5 text-white shadow-md",
           )}
           initial={{ y: "100%", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -70,26 +70,26 @@ const Snackbar: React.FC<Prop> = ({
           transition={{ type: "spring", stiffness: 150, damping: 15 }}
         >
           <div className="flex gap-1">
-            <LightBulbIcon className="w-6 h-6" />
+            <LightBulbIcon className="h-6 w-6" />
             <span className="whitespace-pre-wrap text-lg font-bold">
               {message}
             </span>
           </div>
 
-          <div className="flex gap-2 items-center">
+          <div className="flex items-center gap-2">
             <Button
               type="button"
               onClick={() => {
                 action.func();
                 closeWithAnimation();
               }}
-              className="px-1.5 py-0.5 rounded-md text-sm"
+              className="rounded-md px-1.5 py-0.5 text-sm"
             >
               {action.name}
             </Button>
             <XMarkIcon
               role="button"
-              className="w-6 h-6"
+              className="h-6 w-6"
               onClick={closeWithAnimation}
             />
           </div>
