@@ -10,9 +10,10 @@ import {
 import { twJoin } from "tailwind-merge";
 import Link from "next/link";
 
+import useMe from "#/hooks/queries";
+
 const Header: React.FC = () => {
-  // TODO:
-  const me = true;
+  const { me } = useMe();
   const searchRef = useRef<HTMLInputElement>(null);
   const [isFocus, setIsFocus] = useState(false);
 
@@ -42,16 +43,24 @@ const Header: React.FC = () => {
             onBlur={() => setIsFocus(false)}
           />
         </form>
-        <div className="flex space-x-5">
-          <BellIcon
-            role="button"
-            className="w-6 h-6 text-text-default hover:text-main-600 transition-colors"
-          />
+        <div className="flex items-center space-x-5">
+          <button type="button">
+            <BellIcon
+              role="button"
+              className="w-6 h-6 text-text-default hover:text-main-600 transition-colors"
+            />
+          </button>
           <Link href={me ? "/me" : "/login"}>
             {me ? (
-              <UserIcon className="w-6 h-6 text-text-default hover:text-main-600 transition-colors" />
+              <UserIcon
+                role="link"
+                className="w-6 h-6 text-text-default hover:text-main-600 transition-colors"
+              />
             ) : (
-              <LockOpenIcon className="w-6 h-6 text-text-default hover:text-main-600 transition-colors" />
+              <LockOpenIcon
+                role="link"
+                className="w-6 h-6 text-text-default hover:text-main-600 transition-colors"
+              />
             )}
           </Link>
         </div>
