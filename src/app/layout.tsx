@@ -6,6 +6,7 @@ import MobileNav from "#/layout/MobileNav";
 import Header from "#/layout/Header";
 import Main from "#/layout/Main";
 import Footer from "#/layout/Footer";
+import ReactQueryProvider from "#/providers/ReactQueryProvider";
 import ToastProvider from "#/providers/ToastProvider";
 import SnackbarProvider from "#/providers/SnackbarProvider";
 
@@ -15,12 +16,12 @@ export const metadata: Metadata = {};
 
 interface Props {
   /** 로그인 모달 */
-  authModal: React.ReactElement;
+  logInModal: React.ReactElement;
 }
 
 const RootLayout: React.FC<React.PropsWithChildren<Props>> = ({
   children,
-  authModal,
+  logInModal,
 }) => {
   return (
     <html lang="ko">
@@ -28,22 +29,23 @@ const RootLayout: React.FC<React.PropsWithChildren<Props>> = ({
         <title>세상에 없는 서비스</title>
       </head>
       <body className="relative min-h-screen flex flex-col text-white">
-        <ToastProvider>
-          <SnackbarProvider>
-            <div className="flex-1 flex">
-              <PCNav className="hidden lg:flex" />
-              <div className="flex-1 flex flex-col">
-                <Header />
-                <Main>{children}</Main>
+        <ReactQueryProvider>
+          <ToastProvider>
+            <SnackbarProvider>
+              <div className="flex-1 flex">
+                <PCNav className="hidden lg:flex" />
+                <div className="flex-1 flex flex-col">
+                  <Header />
+                  <Main>{children}</Main>
+                </div>
               </div>
-            </div>
-            <MobileNav className="lg:hidden" />
-            <Footer className="mb-[75px] lg:mb-0" />
-
-            {/* 로그인 모달 */}
-            {authModal}
-          </SnackbarProvider>
-        </ToastProvider>
+              <MobileNav className="lg:hidden" />
+              <Footer className="mb-[75px] lg:mb-0" />
+              {/* 로그인 모달 */}
+              {logInModal}
+            </SnackbarProvider>
+          </ToastProvider>
+        </ReactQueryProvider>
 
         {/* 토스트 포탈 */}
         <aside

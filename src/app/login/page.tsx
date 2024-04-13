@@ -1,9 +1,11 @@
 import type { NextPage } from "next";
 
+import LoginForm from "#/app/_components/LogInForm";
+
 const Page: NextPage = () => {
   return (
     <>
-      <h1>Login</h1>
+      <LoginForm />
     </>
   );
 };
